@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="exam1.js"></script>
+
     <title>Login Page</title>
     <link rel="stylesheet" href="exam1.css">
 </head>
@@ -17,7 +17,11 @@
         <input type="password" placeholder="Password" name="password" id="password">
         <br>
         <br>
-        <button>sign in</button>        
+        <button>sign in</button>   
+        <br>
+        <input type="button" value="SIGN IN" name="signIn" id="signIn" />     
+        <br>
+        <span id="signInResult"></span>
         <br>
         <p class="message">Not a Member? 
             <br> 
@@ -34,6 +38,10 @@
             <br>
         <button>Register New User</button>
         <br>
+        <input type="button" value="REGISTER" name="register" id="register" />     
+        <br>
+        <span id="registerResult"></span>
+        <br>
         <p class="message">Already a Member? 
                 <br> 
                 <a href="#">Sign In</a> </p>
@@ -49,6 +57,7 @@
     });
 
     </script>
+    <script src="exam1.js"></script>
 
 </body>
 </html>
