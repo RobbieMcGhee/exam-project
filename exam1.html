@@ -5,9 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="exam1.js"></script>
-    <title>Document</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="exam1.css">
 </head>
 <body>
-    <h1>Hi there</h1>
+<div class="login-page">
+    <div class="form">
+        <form class="signIn-form">
+        <input type="text" placeholder="Username" name="username" id="username">
+        <br>
+        <input type="password" placeholder="Password" name="password" id="password">
+        <br>
+        <br>
+        <button>sign in</button>        
+        <br>
+        <p class="message">Not a Member? 
+            <br> 
+            <a href="#">Sign Up</a> </p>
+        </form>
+
+    <form class="Register-form">
+        <input type="text" placeholder="Username" name="registerUsername" id="registerUsername">
+        <input type="text" placeholder="E-mail" name="registerEmail" id="registerEmail">
+            <br>
+        <input type="password" placeholder="Password" name="registerPassword" id="registerPassword">
+        <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword">
+            <br>
+            <br>
+        <button>Register New User</button>
+        <br>
+        <p class="message">Already a Member? 
+                <br> 
+                <a href="#">Sign In</a> </p>
+    </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script>
+    $('.message a').click(function() {
+        $('form').animate({height: "toggle", opacity: "toggle"}, "fast");
+    });
+
+    </script>
+
 </body>
 </html>

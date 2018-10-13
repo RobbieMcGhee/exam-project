@@ -1,0 +1,19 @@
+body{
+    background-image: url('https://cdn.architecturendesign.net/wp-content/uploads/2014/08/creative-lamps-chandeliers-23.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+};
+.login-page{
+    width: 360px;
+    padding:10% 0 0;
+    margin: auto;
+}
+.form{
+    position: relative;
+    z-index: 1;
+
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+}
