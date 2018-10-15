@@ -11,12 +11,12 @@
 <div class="login-page">
     <div class="form">
         <form class="signIn-form">
-        <input type="text" placeholder="Username" name="username" id="username"  required>
+        <input type="text" placeholder="E-mail" name="E-mail" id="E-mail"  required>
         <br>
         <input type="password" placeholder="Password" name="password" id="password"  required>
         <br>
         <br>
-        <button id="signIn">sign in</button>   
+        <button id="signIn" type="button" onclick="signingIn()";>sign in</button>   
         <br> 
         <br>
         <span id="signInResult"></span>
@@ -27,17 +27,19 @@
         </form> 
 
     <form class="Register-form">
-        <input type="text" placeholder="Username" name="registerUsername" id="registerUsername" required>
         <input type="text" placeholder="E-mail" name="registerEmail" id="registerEmail" required>
-            <br>
+        <br>
+        <input type="text" placeholder="Street Name and Number" name="streetName" id="streetName" required>
+        <br>
+        <input type="text" placeholder="Zip Code" name="zipCode" id="zipCode" required>
+        <br>
+        <input type="text" placeholder="City" name="city" id="city" required>
         <input type="password" placeholder="Password" name="registerPassword" id="registerPassword" required>
         <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword" required>
             <br>
             <br>
-        <button id="register">Register New User</button>
+        <button id="register" type="button" onclick="registering()">Register New User</button>
         <br>
-
-          
         <br>
         <span id="registerResult"></span>
         <br>
@@ -54,8 +56,8 @@
     $('.message a').click(function() {
         $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
     });
-
     </script>
+    
     <script src="exam1.js"></script>
 
 </body>

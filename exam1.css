@@ -46,7 +46,6 @@ body{
     cursor: pointer;
 }
 
-
 .form button:hover,.form button:active{
     background: #43A047;
 }
@@ -55,6 +54,10 @@ body{
     margin: 15px 0 0;
     color: aliceblue;
     font-size: 12px;
+}
+
+.form span{
+    text-transform: uppercase;
 }
 
 .form .message a{
