@@ -1,0 +1,29 @@
+ #frm{
+  padding: 10px;
+  border: 10px solid;
+}
+
+#cart{
+  margin-top: 5px;
+  padding: 5px;
+  border: 5px solid;
+  background: rgb(152, 229, 231);
+  
+}
+
+th, td, tr{
+  border: 5px solid;
+}
+input{
+  width: 300px    
+}
+
+label{
+  width: 10px
+
+
+
+
+}
+
+
