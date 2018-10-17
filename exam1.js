@@ -2,8 +2,6 @@
 Note, this didnt work to begin with because i had the JS script at the top of the HTML doc, so it ran 
 before anything else was realised by the system. I fixed it by moving the script down after the body 
 section of the HTML file :) */
-//Lav bruger objekter! 
-//Hver klasse i en fil for sig!
 /* First method, no longer needed! 
 const user = [
     {email: 'jeppe@gmail.com', fullName: 'Jeppe Bangskjær', streetName: 'Kastrupvej 1', zipCode: '2770', city: 'Kastrup', pw: "Jep", repeatPw: "Jep"},
@@ -11,7 +9,7 @@ const user = [
     {email: 'robert@gmail.com', fullName: 'Robert McGhee', streetName: 'Kastrupvej 3', zipCode: '2770', city: 'Kastrup', pw: "Rob", repeatPw: "Rob"},
 ] 
  */
-// The constructor for our class, which will allow us to create new objects of our class
+// We will create User objects. The constructor for our class, which will allow us to create new objects of our class
  class User {
 
     constructor(email, fullName, streetName, zipCode, city, pw, repeatPw) {      
@@ -33,7 +31,18 @@ users.push(new User("robert@gmail.com", "Robert McGhee", "Kastrupvej 3", "2770",
 
 
 //Existing Users signing in:
-document.getElementById("signIn").addEventListener("click", function (){
+document.getElementById("signIn").addEventListener("click", function (){ // This negates the "required" function in HTML! 
+    var registerEmail = document.getElementById('registerEmail').value;        
+    
+    var form = document.getElementById('signInForm'); // Gave the form this id!     
+
+    for(var i=0; i < form.elements.length; i++){ // This loop is added because the required part got negated by the addEventListener funtion.
+        if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+            alert('There are some required fields!');
+            return false;
+        }
+    }
+
     console.log('The Sign In button is clicked!'); //to check if the console registers the click
     var eMail = document.getElementById('E-mail').value;
     var password = document.getElementById('password').value;
@@ -50,6 +59,17 @@ document.getElementById("signIn").addEventListener("click", function (){
 // Registering New Users: 
 document.getElementById("register").addEventListener("click",function(){
     console.log('The Register button is clicked!');
+    
+    var form = document.getElementById('registerForm'); // Gave the form this id!     
+
+    for(var i=0; i < form.elements.length; i++){
+        if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+            alert('There are some required fields!');
+            return false;
+        }
+    }
+
+
     var registerEmail = document.getElementById('registerEmail').value;
     var registerStreetName = document.getElementById('registerStreetName').value;
     var registerFullName = document.getElementById('registerFullName').value;
@@ -69,7 +89,8 @@ interfer with the existing user data*/
   //  var re = /^((?!(0))[0-9]{4})$/g;  // tried to use regex to check the pattern of zip codes, does not work tho! 
     for (var i = 0; i < users.length; i++) {     //Reversing the logic here could make sense!'
     console.log("for loop called")
-  
+    
+        
         if (valEmail(registerEmail) && registerEmail !== users[i].email &&   //THIS MIGHT CHANGE WITH NEW USER OBJECTS!
             registerPassword === repeatPassword && registerZipCode.length == 4 &&
              !registerZipCode.startsWith("0")){
@@ -83,6 +104,13 @@ interfer with the existing user data*/
             };
     };
 });
+
+
+
+
+
+
+
 /*
 <script type="text/javascript">
  var num1 = 100;
