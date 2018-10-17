@@ -1,0 +1,25 @@
+body{
+background-image: url('https://odditymall.com/includes/content/no-head-teddy-bear-lamp-thumb.jpg');
+height: 100vh;
+background-size: cover;
+background-position: center;
+}
+
+.lamp{
+    position: relative;
+    z-index: 1;
+    background: rgba(122, 131, 172, 0.8);
+    max-width: 360px;
+    margin: 30px auto 10px;
+    padding: 30px;
+    text-align: center;}
+
+#lampList .lamp {
+    float:left;
+    width: 200px;
+    font-family: "Roboto", sans-serif; 
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+
+}
