@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="exam1.css">
 </head>
 <body>
+
+<!-- Layout inspired by a variety of tutorials and websites -->
+
 <div class="login-page">
     <div class="form">
         <form class="signIn-form">
-        <input type="text" placeholder="E-mail" name="E-mail" id="E-mail"  required>
+        <input type="text" placeholder="E-mail" name="E-mail" id="E-mail" required = "true">
         <br>
-        <input type="password" placeholder="Password" name="password" id="password"  required>
+        <input type="password" placeholder="Password" name="password" id="password" required = "true">
         <br>
         <br>
-        <button id="signIn" type="button" onclick="signingIn()";>sign in</button>   
+        <button id="signIn" type="button">sign in</button>   
         <br> 
-        <br>
         <span id="signInResult"></span>
         <br>
         <p class="message">Not a Member? 
@@ -27,19 +29,19 @@
         </form> 
 
     <form class="Register-form">
-        <input type="text" placeholder="E-mail" name="registerEmail" id="registerEmail" required>
+        <input type="text" placeholder="E-mail" name="registerEmail" id="registerEmail" required = "true">
         <br>
-        <input type="text" placeholder="Street Name and Number" name="streetName" id="streetName" required>
+        <input type="text" placeholder="Full Name e.g. Sherlock Holmes" name="fullName" id="registerFullName" required = "true">
         <br>
-        <input type="text" placeholder="Zip Code" name="zipCode" id="zipCode" required>
+        <input type="text" placeholder="Address, e.g. Bakerstreet 221B" name="streetName" id="registerStreetName" required = "true">
         <br>
-        <input type="text" placeholder="City" name="city" id="city" required>
-        <input type="password" placeholder="Password" name="registerPassword" id="registerPassword" required>
-        <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword" required>
+        <input type="text" placeholder="Zip Code" name="zipCode" id="registerZipCode" required = "true">
+        <br>
+        <input type="text" placeholder="City" name="city" id="city" required = "true">
+        <input type="password" placeholder="Password" name="registerPassword" id="registerPassword" required = "true">
+        <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword" required = "true">
             <br>
-            <br>
-        <button id="register" type="button" onclick="registering()">Register New User</button>
-        <br>
+        <button id="register" type="button">Register New User</button>
         <br>
         <span id="registerResult"></span>
         <br>
@@ -49,15 +51,14 @@
     </form>
     </div>
 </div>
-
+<!-- We used jQuery for the animation effect, see link below -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
     <script>
     $('.message a').click(function() {
         $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
     });
     </script>
-    
+
     <script src="exam1.js"></script>
 
 </body>
