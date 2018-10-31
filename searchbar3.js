@@ -1,3 +1,5 @@
+
+
 /* Instead of searching in the HTML for our objects (lamps), 
 we can make a class of them in the JS file.*/
 class Lamp {
@@ -297,8 +299,15 @@ lamps.push(new Lamp(
     );
 
 
+    var content = ""
 
-// First we will grab the element by its ID! 
+    for (var i = 0; i < lamps.length; i++) {
+        content += lamps[i].createHTML()
+    }
+    document.getElementById("lamps").innerHTML = content;
+    //addEvents();
+
+    // First we will grab the element by its ID! 
 var filterInput = document.getElementById('filterInput');
 
 // Now we add the event listener (keyUp), and then call the function that searches/filters through our lamp selection:
