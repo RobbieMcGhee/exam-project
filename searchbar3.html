@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"> -->
     <title>Document</title>
+
 </head>
 <body>
     
@@ -15,14 +16,39 @@
         </h1>
         <!-- Here people can search for e.g. categories, we can change this into e.g. color -->
         <input type="text" placeholder="What lamp you looking for?" name="filterInput" id="filterInput"> <!-- Change this to filterType -->
-        <!-- trying to add dropdown -->
         
-        <div>
-                <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="Male"> 
-                <label for="female">female</label>
-                <input type="radio" id="female" name="gender" value="Female">
-                </div>
+        <!-- Adding dropdown -->
+    <form id="filter">
+            <div>
+                <label for="Filter">Narrow your search here!</label>
+                    <select name="Type">
+                        <option value="">Type</option>
+                        <option value="Celing">Celing Lamp</option>
+                        <option value="Desk">Desk Lamp</option>
+                        <option value="Floor">Floor Lamp</option>
+                    </select>
+        
+                    <select name="Color">
+                        <option value="">Color</option>
+                        <option value="Green">Green</option>
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Grey">Grey</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Black">Black</option>
+                        <option value="Yellow">Yellow</option>
+                    </select>
+        
+                    <select name="Universe">
+                        <option value="" id="universe" >Universe</option>
+                        <option value="Disney">Disney</option>
+                        <option value="Marvel">Marvel</option>
+                        <option value="Pixar">Pixar</option>
+                    </select>
+            </div>
+        </form>
+        
 
         <ul id="lamps" class="collection with-header"> <!-- look up ul! -->
             <li class="collection-header"> <!-- This is where the headers of the lamp categories will be -->
@@ -42,11 +68,11 @@
         </ul>
 
     </div>
-
-
-
+<script src="LineItem.js"></script>
+<script src="Order.js"></script>
 <script src="searchbar3.js"></script>
 </body>
 </html>
+
 
 
