@@ -8,6 +8,12 @@ class Order {
 
     }
 
+    addItemToCart(item){
+        
+        this.items.push(item);
+
+    }
+
     getOrderFromStorage(){
         var orderJson = localStorage.getItem("order");
 
@@ -23,6 +29,6 @@ class Order {
     saveOrderToStorage(){
         // Save order to storage
 
-        alert("Order saved");
+        // alert("Order saved");
     }
 }

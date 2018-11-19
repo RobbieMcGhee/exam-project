@@ -1,14 +1,4 @@
-/* 1st, the login function:
-Note, this didnt work to begin with because i had the JS script at the top of the HTML doc, so it ran 
-before anything else was realised by the system. I fixed it by moving the script down after the body 
-section of the HTML file :) */
-/* First method, no longer needed! 
-const user = [
-    {email: 'jeppe@gmail.com', fullName: 'Jeppe Bangskjær', streetName: 'Kastrupvej 1', zipCode: '2770', city: 'Kastrup', pw: "Jep", repeatPw: "Jep"},
-    {email: 'frederik@gmail.com', fullName: 'Frederik Mouritsen', streetName: 'Kastrupvej 2', zipCode: '2770', city: 'Kastrup', pw: "Fre", repeatPw: "Fre"},
-    {email: 'robert@gmail.com', fullName: 'Robert McGhee', streetName: 'Kastrupvej 3', zipCode: '2770', city: 'Kastrup', pw: "Rob", repeatPw: "Rob"},
-] 
- */
+
 // We will create User objects. The constructor for our class, which will allow us to create new objects of our class
  class User {
 
@@ -37,7 +27,7 @@ document.getElementById("signIn").addEventListener("click", function (){ // This
 
     for(var i=0; i < form.elements.length; i++){ // This loop is added because the required part got negated by the addEventListener funtion.
         if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
-            alert('There are some required fields!');
+            alert('You must fill in both Username and Password');
             return false;
         }
     }
@@ -48,7 +38,7 @@ document.getElementById("signIn").addEventListener("click", function (){ // This
     for (var i = 0; i < users.length; i++) {
         if (eMail == users[i].email && password == users[i].pw) {
             document.getElementById('signInResult').textContent = 'You have succesfully signed in';
-            return window.location.replace("searchbar2.html");
+            return window.location.replace("searchbar3.html");
             
         }
         else{
@@ -69,6 +59,9 @@ document.getElementById("register").addEventListener("click",function(){
         }
     }
 
+    var inputOnlyCharacters = /^[a-zA-Z\s]*$/; //this regex means only characters
+    var inputOnlyNumbers = /^[0-9]+$/; //this regex means only numbers, we made it variables since we might use them several times
+        
     var registerEmail = document.getElementById('registerEmail').value;
     var registerStreetName = document.getElementById('registerStreetName').value;
     var registerFullName = document.getElementById('registerFullName').value;
@@ -84,23 +77,50 @@ document.getElementById("register").addEventListener("click",function(){
 // We need to make sure new user info does not interfer with the existing user data
 // New Users Registering: 
     var newerUser = new User(registerEmail, registerFullName, registerStreetName, registerZipCode, registerCity, registerPassword, repeatPassword);
-  //  var re = /^((?!(0))[0-9]{4})$/g;  // tried to use regex to check the pattern of zip codes, does not work tho! 
-    for (var i = 0; i < users.length; i++) {  //Reversing the logic here could make sense!'
+
+    for (var i = 0; i < users.length; i++) { 
     console.log("for loop called")
-    
-        
-        if (valEmail(registerEmail) && registerEmail !== users[i].email &&   //THIS MIGHT CHANGE WITH NEW USER OBJECTS!
-            registerPassword === repeatPassword && registerZipCode.length == 4 &&
-             !registerZipCode.startsWith("0")){
+//First we test the email criteria
+        if (valEmail(registerEmail) && registerEmail !== users[i].email) {
+        } 
+            else {
+                document.getElementById('registerResult').textContent = 'Your email is not an approved';
+                return false
+                }
+// Now we check the Name criteria
+        if(inputOnlyCharacters.test(registerFullName)) {
+        }
+            else {
+                document.getElementById('registerResult').textContent = 'Your full name should be western letters only';
+                return false
+            }
+// Now we check the Address criteria
+        if (/[A-Za-z]/g.test(registerStreetName) && /[0-9]/g.test(registerStreetName)){
+        }
+            else {
+                document.getElementById('registerResult').textContent = 'Address must contain both letters and number(s)';
+                return false
+            }       
+// Now we check the Zip Code criteria
+        if (inputOnlyNumbers.test(registerZipCode) && registerZipCode.length == 4 && !registerZipCode.startsWith("0")) {
+        }
+        else {
+            document.getElementById('registerResult').textContent = 'Your Zip code does not fulfill the requirements';
+            return false
+        }  
+// We have not added requirements for the password for this project, except that there must be some input
+        if (registerPassword === repeatPassword) {
                 users.push(newerUser);
                 console.log('it has been pushed');
                 document.getElementById('registerResult').textContent = 'Registration Successful!';
-                return true;
+                return true
             }
             else{
-                document.getElementById('registerResult').textContent = "Username/Email already exists, or wrong Password input, please try again!";
+                document.getElementById('registerResult').textContent = 'Check if password matches';
+                return false
             };
-    };
+
+    }; 
 });
 
 // Re-directing to the HTML with the filtering function. 
