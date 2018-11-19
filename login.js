@@ -38,7 +38,7 @@ document.getElementById("signIn").addEventListener("click", function (){ // This
     for (var i = 0; i < users.length; i++) {
         if (eMail == users[i].email && password == users[i].pw) {
             document.getElementById('signInResult').textContent = 'You have succesfully signed in';
-            return window.location.replace("searchbar3.html");
+            return window.location.replace("searchpage.html");
             
         }
         else{
